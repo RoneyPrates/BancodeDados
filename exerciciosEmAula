@@ -1,0 +1,35 @@
+--quantos filmes cada ator fez:
+select * from actor;
+select * from film_actor;
+
+select ac.first_name || '' ||ac.last_name, fa.actor_id, count(*)
+from film_actor fa
+inner join actor ac on ac.actor_id = fa.actor_id
+group by ac.first_name ||''|| ac.last_name, fa.actor_id
+
+
+--quantas locações cada funcionário realizou
+select * from staff
+select *from rental
+
+select staff_id, count(*)
+from rental
+group by staff_id
+
+select * from payment
+
+--qual valor cada funcionário já alugou
+select staff_id, sum (amount)
+from payment
+group by staff_id
+
+
+--quantos filmes existem no estoque de cada loja
+
+select * from store
+
+select store_id, count(*)
+from inventory
+group by store_id
+
+select * from "language";
