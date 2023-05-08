@@ -17,7 +17,6 @@ from rental
 group by staff_id
 
 select * from payment
-
 --qual valor cada funcionário já alugou
 select staff_id, sum (amount)
 from payment
@@ -25,7 +24,6 @@ group by staff_id
 
 
 --quantos filmes existem no estoque de cada loja
-
 select * from store
 
 select store_id, count(*)
@@ -33,3 +31,27 @@ from inventory
 group by store_id
 
 select * from "language";
+
+
+--apresentar a média de custo de reposição dos filmes
+select * from film
+
+select avg (replacement_cost)
+from film
+
+
+--apresentar o nome do filme com o maior custo de reposição dos filmes
+select * from film
+
+select title as titulo,
+replacement_cost as custo
+from film
+order by replacement_cost desc limit 1;
+
+
+--apresentar o nome do filme com o menor custo de reposição dos filmes
+select title as titulo,
+replacement_cost as custo
+from film
+order by replacement_cost asc limit 1;
+
